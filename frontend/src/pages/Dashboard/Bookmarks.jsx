@@ -14,7 +14,7 @@ const Bookmarks = () => {
   useUserAuth();
 
   const navigate = useNavigate();
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   const [bookmarkedPolls, setBookmarkedPolls] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -28,10 +28,10 @@ const Bookmarks = () => {
       const response = await axiosInstance.get(API_PATHS.POLLS.GET_BOOKMARKED);
 
       if (response.data?.bookmarkedPolls?.length > 0) {
-        setBookmarkedPolls((prevPolls) => [
-          ...prevPolls,
-          ...response.data.bookmarkedPolls,
-        ]);
+        // ✅ Replacing instead of appending to prevent duplicates
+        setBookmarkedPolls(response.data.bookmarkedPolls);
+      } else {
+        setBookmarkedPolls([]); // Optional reset
       }
     } catch (error) {
       console.log("Something went wrong. Please try again.", error);
