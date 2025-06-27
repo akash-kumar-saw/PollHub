@@ -9,7 +9,6 @@ import PollCard from "../../components/PollCards/PollCard";
 import CREATE_ICON from "../../assets/images/my-poll-icon.png";
 import EmptyCard from "../../components/cards/EmptyCard";
 
-
 const VotedPolls = () => {
   useUserAuth();
 
@@ -27,7 +26,10 @@ const VotedPolls = () => {
       const response = await axiosInstance.get(API_PATHS.POLLS.VOTED_POLLS);
 
       if (response.data?.polls?.length > 0) {
-        setVotedPolls((prevPolls) => [...prevPolls, ...response.data.polls]);
+        // ✅ Replace the state instead of appending
+        setVotedPolls(response.data.polls);
+      } else {
+        setVotedPolls([]); // Optional: reset if no polls
       }
     } catch (error) {
       console.log("Something went wrong. Please try again.", error);
