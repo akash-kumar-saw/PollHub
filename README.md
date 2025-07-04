@@ -1,8 +1,10 @@
 # PollHub - Social Polling Platform
 
-![PollHub Logo](https://github.com/akash-kumar-saw/PollHub/blob/master/frontend/src/assets/images/pollhub.png) 
+![PollHub Logo](https://github.com/akash-kumar-saw/PollHub/blob/master/frontend/src/assets/images/pollhub-cover.png) 
 
 PollHub is a social media platform for creating and participating in polls. Share your opinions and see what others think!
+
+## Deployed @ https://pollhub-akash.vercel.app/
 
 ## Features
 
@@ -27,6 +29,7 @@ PollHub is a social media platform for creating and participating in polls. Shar
 - Node.js
 - Express.js
 - MongoDB
+- Cloudinary
 - JWT (JSON Web Token) 
 
 ## Getting Started
@@ -34,6 +37,7 @@ PollHub is a social media platform for creating and participating in polls. Shar
 ### Prerequisites
 - Node.js
 - MongoDB Atlas account or local MongoDB instance
+- Cloudinary account
 - npm or yarn
 
 ### Installation
@@ -53,6 +57,10 @@ PollHub is a social media platform for creating and participating in polls. Shar
    ```bash
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
+   CLIENT_URL=your_frontend_url
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
    PORT=8000
    ```
 
@@ -79,7 +87,7 @@ PollHub is a social media platform for creating and participating in polls. Shar
 
 2. Create .env file:
    ```bash
-   VITE_API_BASE_URL=http://localhost:8000
+   VITE_API_BASE_URL=http://localhost:800
    ```
 
 3. Install dependencies:
